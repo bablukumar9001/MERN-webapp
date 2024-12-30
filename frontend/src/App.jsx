@@ -9,7 +9,7 @@ import Login from './pages/Login'
 import Logout from './pages/Logout'
 import Error from './pages/Error'
 import { Navbar } from './components/Navbar/Navbar';
-import Footer from './components/footer/footer'
+import Footer from './components/footer/Footer'
 import AdminLayout from './components/layouts/AdminLayout'
 import AdminUsers from './pages/AdminUsers'
 import AdminContacts from './pages/AdminContacts'
