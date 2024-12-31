@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useAuth } from "../store/auth";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-
+import { baseUrl } from "../config";
 
 export const Register = () => {
   const [user, setUser] = useState({
@@ -13,6 +13,8 @@ export const Register = () => {
     password: "",
   });
 
+  console.log("API_BASE_URL",baseUrl);
+  
  
 const navigate = useNavigate()
 const {storeTokenInLS} = useAuth();
@@ -37,7 +39,7 @@ const {storeTokenInLS} = useAuth();
 
 
     try {
-      const response = await fetch("http://localhost:5000/api/auth/register", {
+      const response = await fetch(`${baseUrl}/api/auth/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
