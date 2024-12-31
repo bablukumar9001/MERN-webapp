@@ -21,11 +21,7 @@ export default ({ mode }) => {
           secure: false, // Allow self-signed SSL certificates
           rewrite: (path) => path.replace(/^\/api/, ""), // Remove `/api` prefix before forwarding to the target
         },
-        "/clientdata": {
-          target: env.VITE_CLIENTDATA_URL || "http://localhost:5000", // Use env variable or fallback
-          changeOrigin: true,
-          secure: false,
-        },
+     
       },
     },
   });
