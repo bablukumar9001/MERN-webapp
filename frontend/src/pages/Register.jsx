@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useAuth } from "../store/auth";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { baseUrl } from "../config";
+// import { baseUrl } from "../config";
 
 export const Register = () => {
   const [user, setUser] = useState({
@@ -36,6 +36,7 @@ const {storeTokenInLS} = useAuth();
     e.preventDefault();
     console.log(user);
 
+    const baseUrl = import.meta.env.VITE_BASE_URL;
 
 
     try {
