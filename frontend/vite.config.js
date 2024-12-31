@@ -10,12 +10,16 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": { // Proxy any request starting with `/api`
-        target: "https://mern-webapp-api.onrender.com", // Use env variable or fallback to localhost
+        target: process.env.VITE_BASE_URL || "http://localhost:5000", // Use env variable or fallback to localhost
         changeOrigin: true, // Change the origin header to the target URL
         secure: false, // Allow self-signed SSL certificates
         rewrite: (path) => path.replace(/^\/api/, ""), // Remove `/api` prefix before forwarding to the target
       },
-     
+      "/clientdata": { // Proxy for `/clientdata`
+        target: process.env.VITE_CLIENTDATA_URL || "http://localhost:5000", // Use env variable or fallback to localhost
+        changeOrigin: true,
+        secure: false,
+      },
     },
   },
 });
