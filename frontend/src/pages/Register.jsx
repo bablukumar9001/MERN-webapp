@@ -13,7 +13,7 @@ export const Register = () => {
     password: "",
   });
 
-  console.log("API_BASE_URL",baseUrl);
+  // console.log("API_BASE_URL",baseUrl);
   
  
 const navigate = useNavigate()
@@ -37,6 +37,9 @@ const {storeTokenInLS} = useAuth();
     console.log(user);
 
     const baseUrl = import.meta.env.VITE_BASE_URL;
+
+  console.log("gfgfgf",baseUrl);
+  
 
 
     try {

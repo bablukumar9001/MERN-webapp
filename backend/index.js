@@ -10,6 +10,9 @@ const connectDB = require("./utils/db.js");
 const errorMiddleware = require("./middleware/error-middleware.js");
 
 // Use environment variable or default value for CORS origin
+// console.log(process.env.FRONTEND_URL);
+
+
 const corsOptions = {
   origin: process.env.FRONTEND_URL || "http://localhost:5174",
   methods: "GET, POST, PUT, DELETE, PATCH, HEAD",
