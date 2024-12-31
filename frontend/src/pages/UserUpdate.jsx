@@ -17,11 +17,14 @@ export const UserUpate = () => {
 
     const { authorizationToken } = useAuth()
 
+    const baseUrl = import.meta.env.VITE_BASE_URL;
+
+
     // get a single user
 
     const getSingleUser = async () => {
         try {
-            const response = await fetch(`http://localhost:5000/api/admin/users/${params.id}`, {
+            const response = await fetch(`${baseUrl}/api/admin/users/${params.id}`, {
                 method: 'GET',
                 headers: {
                     Authorization: authorizationToken

@@ -7,7 +7,7 @@ const Services = () => {
   const {services} = useAuth()
 
 
-  console.log("z",services)
+  // console.log("z",services)
 
   return (
    <>

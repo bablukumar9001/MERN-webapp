@@ -35,15 +35,16 @@ export const AuthProvider = ({ children }) => {
 
 
   const authorizationToken = `Bearer ${token}`
-  console.log("zccs",authorizationToken);
+  // console.log("zccs",authorizationToken);
 
+  const baseUrl = import.meta.env.VITE_BASE_URL;
 
   // JWT authentication
   const userAuthentication = async () => {
 
     try {
       setIsLoading(true)
-      const response = await fetch("http://localhost:5000/api/auth/user", {
+      const response = await fetch(`${baseUrl}/api/auth/user`, {
         method: "GET",
         headers: {
           Authorization: authorizationToken
@@ -76,7 +77,7 @@ export const AuthProvider = ({ children }) => {
   const getServiceData = async () => {
 
     try {
-      const response = await fetch("http://localhost:5000/api/data/service", {
+      const response = await fetch(`${baseUrl}/api/data/service`, {
         method: "GET"
       })
       if (response.ok) {

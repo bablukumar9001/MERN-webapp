@@ -10,14 +10,14 @@ export const Contact = () => {
     message: "",
   });
 
-   const[userData, setUserData] = useState(true)
-  const {user} = useAuth()
- 
-  if (userData && user){
+  const [userData, setUserData] = useState(true)
+  const { user } = useAuth()
+
+  if (userData && user) {
     setContact({
-      username:user.username,
-      email:user.email,
-      message:""
+      username: user.username,
+      email: user.email,
+      message: ""
     })
     setUserData(false)
   }
@@ -33,20 +33,24 @@ export const Contact = () => {
     });
   };
 
+  const baseUrl = import.meta.env.VITE_BASE_URL;
+
+
 
   // handle fomr getFormSubmissionInfo
-  const handleSubmit =  async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     // console.log("heloooooo",contact);
     try {
-      const response = await axios.post("http://localhost:5000/api/contact/contactform", contact, {
+
+      const response = await axios.post(`${baseUrl}/api/contact/contactform`, contact, {
         headers: {
           "Content-Type": "application/json",
         },
       });
       console.log("response data: ", response.data);
-    
+
       if (response.status === 200) {
         toast.success("Message send successfully");
         storeTokenInLS(response.data.token)
@@ -141,4 +145,4 @@ export const Contact = () => {
     </>
   );
 };
-export  default  Contact
+export default Contact

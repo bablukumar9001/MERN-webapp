@@ -14,7 +14,10 @@ const AdminContacts = () => {
 
     const { authorizationToken } = useAuth(); // Adjust if useAuth returns the token directly.
 
-    console.log("token from frontend", authorizationToken);
+    // console.log("token from frontend", authorizationToken);
+
+    const baseUrl = import.meta.env.VITE_BASE_URL;
+
 
 
     const getAllUsersData = async () => {
@@ -22,7 +25,7 @@ const AdminContacts = () => {
 
 
         try {
-            const response = await axios.get("http://localhost:5000/api/admin/contacts", {
+            const response = await axios.get(`${baseUrl}/api/admin/contacts`, {
                 headers: {
                     Authorization: authorizationToken, // Add 'Bearer' if needed.
                 },
@@ -42,7 +45,7 @@ const AdminContacts = () => {
 
     const deleteContact = async (id) => {
         try {
-            const response = await axios.delete(`http://localhost:5000/api/admin/contacts/delete/${id}`, {
+            const response = await axios.delete(`${baseUrl}/api/admin/contacts/delete/${id}`, {
                 headers: {
                     Authorization: authorizationToken, // Add 'Bearer' if needed.
                 },

@@ -43,7 +43,7 @@ const {storeTokenInLS} = useAuth();
 
 
     try {
-      const response = await fetch(`https://mern-webapp-api.onrender.com/api/auth/register`, {
+      const response = await fetch(`${baseUrl}/api/auth/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

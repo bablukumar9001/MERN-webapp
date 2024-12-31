@@ -12,7 +12,10 @@ const AdminUsers = () => {
 
     const { authorizationToken  } = useAuth(); // Adjust if useAuth returns the token directly.
 
-    console.log("token from frontend", authorizationToken);
+    // console.log("token from frontend", authorizationToken);
+
+    const baseUrl = import.meta.env.VITE_BASE_URL;
+
 
 
     const getAllUsersData = async () => {
@@ -20,7 +23,7 @@ const AdminUsers = () => {
 
 
         try {
-            const response = await axios.get("http://localhost:5000/api/admin/users", {
+            const response = await axios.get(`${baseUrl}/api/admin/users`, {
                 headers: {
                     Authorization: authorizationToken, // Add 'Bearer' if needed.
                 },
@@ -40,7 +43,7 @@ const AdminUsers = () => {
 
     const deleteUser = async (id) => {
         try {
-            const response = await axios.delete(`http://localhost:5000/api/admin/users/delete/${id}`, {
+            const response = await axios.delete(`${baseUrl}/api/admin/users/delete/${id}`, {
                 headers: {
                     Authorization: authorizationToken, // Add 'Bearer' if needed.
                 },
