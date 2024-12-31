@@ -11,6 +11,7 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState("")
   const [services, setServices] = useState("")
   const [isLoading, setIsLoading] = useState(true)
+  const [isAdmin, setIsAdmin] = useState()
 
   
 
@@ -56,6 +57,7 @@ export const AuthProvider = ({ children }) => {
         console.log("user data ", data);
         setUser(data.userData)
         setIsLoading(false)
+        setIsAdmin(data.userData.isAdmin)
 
       }
       else{
@@ -106,7 +108,7 @@ export const AuthProvider = ({ children }) => {
 
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn, storeTokenInLS, LogoutUser, user, services , authorizationToken ,isLoading}}>
+    <AuthContext.Provider value={{ isLoggedIn, storeTokenInLS, LogoutUser, user, services , authorizationToken ,isLoading,isAdmin}}>
       {children}
     </AuthContext.Provider>
   );
