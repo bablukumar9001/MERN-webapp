@@ -45,8 +45,13 @@ app.use("/api/data", serviceRoute);
 app.use("/api/admin", adminRoute);
 
 // Serve frontend in production
+console.log("production",process.env.NODE_ENV);
+
 if (process.env.NODE_ENV === "production") {
   const frontendPath = path.join(__dirname, "../frontend/dist");
+
+  console.log("frontendPath",frontendPath);
+  
   app.use(express.static(frontendPath));
 
   app.get("*", (req, res) => {
