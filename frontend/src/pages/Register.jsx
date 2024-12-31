@@ -12,6 +12,7 @@ export const Register = () => {
     phone: "",
     password: "",
   });
+  
 
   // console.log("API_BASE_URL",baseUrl);
   
@@ -36,9 +37,10 @@ const {storeTokenInLS} = useAuth();
     e.preventDefault();
     console.log(user);
 
-    const baseUrl = import.meta.env.VITE_BASE_URL;
+    
+  const baseUrl = import.meta.env.VITE_BASE_URL
 
-  console.log("gfgfgf",baseUrl);
+  
   
 
 
