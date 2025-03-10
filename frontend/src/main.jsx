@@ -3,30 +3,32 @@ import { createRoot } from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 import { AuthProvider } from './store/auth.jsx'
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { ThemeProvider } from './theme/ThemeProvider.jsx'
+
+// Import Tailwind CSS
+import './tailwind.css'
 
 createRoot(document.getElementById('root')).render(
-
-
   <AuthProvider>
-    <StrictMode>
-      <App />
-      <ToastContainer
-        position="top-right"
-        autoClose={3000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="colored"
-        bodyClassName="toastBody"
-        // transition:Bounce,
- />
-    </StrictMode>,
-
+    <ThemeProvider>
+      <StrictMode>
+        <App />
+        <ToastContainer
+          position="top-right"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="colored"
+          bodyClassName="toastBody"
+        />
+      </StrictMode>
+    </ThemeProvider>
   </AuthProvider>
 )
